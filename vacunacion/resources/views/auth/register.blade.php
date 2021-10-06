@@ -15,8 +15,8 @@
             </div>
 
             <div>
-                <x-jet-label for="nameAndLastName" value="{{ __('Name and Last Name') }}" />
-                <x-jet-input id="nameAndLastName" class="block mt-1 w-full" type="text" name="nameAndLastName" :value="old('nameAndLastName')" required autofocus autocomplete="nameAndLastName" />
+                <x-jet-label for="name" value="{{ __('Name and Last Name') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
@@ -26,7 +26,30 @@
 
             <div>
                 <x-jet-label for="province" value="{{ __('Province') }}" />
-                <x-jet-input id="province" class="block mt-1 w-full" type="text" name="province" :value="old('province')" required autofocus autocomplete="province" />
+                <select name="province" id="province"  class="block mt-1 w-full">
+                    <option value="ba">Buenos Aires</option>
+                    <option value="lp">La Pampa</option>
+                    <option value="mi">Misiones</option>
+                    <option value="fo">Formosa</option>
+                    <option value="er">Entre Rios</option>
+                    <option value="ch">Chaco</option>
+                    <option value="sa">Salta</option>
+                    <option value="tu">Tucuman</option>
+                    <option value="se">Santiago del Estero</option>
+                    <option value="me">Mendoza</option>
+                    <option value="sl">San Luis</option>
+                    <option value="sj">San Juan</option>
+                    <option value="tf">Tierra del Fuego</option>
+                    <option value="sc">Santa Cruz</option>
+                    <option value="ch">Chubut</option>
+                    <option value="co">Cordoba</option>
+                    <option value="sf">Santa Fe</option>
+                    <option value="rn">Rio Negro</option>
+                    <option value="ne">Neuquen</option>
+                    <option value="co">Corrientes</option>
+                    <option value="lr">La Rioja</option>
+                    <option value="ca">Catamarca</option>
+                </select>
             </div>
 
             <div>
