@@ -17,6 +17,7 @@ class AddMoreFieldsToUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('province');
             $table->string('city');
+            $table->string('dni');
         });
     }
 

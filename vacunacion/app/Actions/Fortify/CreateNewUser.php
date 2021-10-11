@@ -27,6 +27,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
             'province' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
+            'dni' => ['required', 'integer','numeric'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
@@ -37,6 +38,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
             'province' => $input['province'],
             'city' => $input['city'],
+            'dni' => $input['dni'],
         ]);
     }
 }

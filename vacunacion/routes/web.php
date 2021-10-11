@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\VaccineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('dropdownlist',[DataController::class,'getProvinces']);
-Route::get('dropdownlist/getstates/{id}',[DataController::class,'getCities']);
+Route::resource('vaccines',VaccineController::class)->middleware('can:vaccines')->names('vaccines');
 
