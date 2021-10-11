@@ -22,6 +22,7 @@ class RoleSeeder extends Seeder
         $role4 = Role::create(['name' => 'operario']);
 
         Permission::create(['name' => 'vaccines'])->syncRoles($role2);
+        Permission::create(['name' => 'sanitary_regions'])->syncRoles($role2);
 
 
     }

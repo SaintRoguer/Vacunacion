@@ -14,6 +14,12 @@
                         Vaccines
                 </x-jet-nav-link>
                 @endcan
+
+                @can('sanitary_regions')
+                <x-jet-nav-link href="{{ route('sanitary_regions.index') }}" :active="request()->routeIs('sanitary_regions.index')">
+                        Sanitary Regions
+                </x-jet-nav-link>
+                @endcan
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

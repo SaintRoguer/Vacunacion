@@ -3,6 +3,8 @@
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VaccineController;
+use App\Http\Controllers\SanitaryRegionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +26,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('vaccines',VaccineController::class)->middleware('can:vaccines')->names('vaccines');
+Route::resource('sanitary_regions',SanitaryRegionController::class)->middleware('can:sanitary_regions')->names('sanitary_regions');
+
 
