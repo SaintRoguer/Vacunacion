@@ -18,10 +18,20 @@ class UserSeeder extends Seeder
             'username' => 'superadmin',
             'name' => 'superadmin',
             'email' => 'superadmin@gmail.com',
-            'province' => 'BA',
+            'province' => 'Buenos Aires',
             'city' => 'Bahia Blanca',
             'password' => bcrypt('superadmin'),
             'dni' => 0
         ])->assignRole('superadmin');
+
+        User::create([
+            'username' => 'operario',
+            'name' => 'operario',
+            'email' => 'operario@gmail.com',
+            'province' => 'Buenos Aires',
+            'city' => 'Bahia Blanca',
+            'password' => bcrypt('operario'),
+            'dni' => 1
+        ])->assignRole('operario');
     }
 }
