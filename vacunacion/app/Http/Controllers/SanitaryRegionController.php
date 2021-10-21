@@ -132,7 +132,7 @@ class SanitaryRegionController extends Controller
     public function update(Request $request, Sanitary_region $sanitary_region)
     {
         $request->validate([
-            'name' => 'required|unique:sanitary_regions,name',
+            'name' => 'required|unique:sanitary_regions,name,'.$sanitary_region->id,
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
             'province' => 'required|string'

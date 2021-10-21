@@ -28,7 +28,7 @@ class VaccineController extends Controller
             'Sputnik' => 'Sputnik',
             'Pfizer' => 'Pfizer',
             'Moderna' => 'Moderna',
-            'Cinopharm' => 'Cinopharm'
+            'Sinopharm' => 'Sinopharm'
         ];
         return view('vaccines.create',compact('laboratory'));
     }
@@ -77,7 +77,7 @@ class VaccineController extends Controller
             'Sputnik' => 'Sputnik',
             'Pfizer' => 'Pfizer',
             'Moderna' => 'Moderna',
-            'Cinopharm' => 'Cinopharm'
+            'Sinopharm' => 'Sinopharm'
         ];
 
         return view('vaccines.edit', compact('vaccine','laboratory'));

@@ -33,5 +33,25 @@ class UserSeeder extends Seeder
             'password' => bcrypt('operario'),
             'dni' => 1
         ])->assignRole('operario');
+
+        User::create([
+            'username' => 'ministro',
+            'name' => 'ministro',
+            'email' => 'ministro@gmail.com',
+            'province' => 'Buenos Aires',
+            'city' => 'Bahia Blanca',
+            'password' => bcrypt('ministro'),
+            'dni' => 3
+        ])->assignRole('ministro de salud');
+
+        User::create([
+            'username' => 'responsable',
+            'name' => 'responsable',
+            'email' => 'responsable@gmail.com',
+            'province' => 'Buenos Aires',
+            'city' => 'Bahia Blanca',
+            'password' => bcrypt('responsable'),
+            'dni' => 3
+        ])->assignRole('responsable de region sanitaria');
     }
 }
