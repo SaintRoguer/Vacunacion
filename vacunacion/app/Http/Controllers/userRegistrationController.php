@@ -8,6 +8,8 @@ use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 use Illuminate\Http\Request;
 use App\Actions\Fortify\PasswordValidationRules;
+use Illuminate\Support\Facades\Auth;
+use DB;
 
 class userRegistrationController extends Controller
 {
@@ -21,13 +23,26 @@ class userRegistrationController extends Controller
     public function index()
     {
   
-        $users = User::where('id','<>', function($query){
-            $query->select('model_id')
-            ->from('model_has_roles')
-            ->where('role_id','2');
-        })->get();
-       
-        return view('users.index', compact('users'));
+        $userid = Auth::id();
+        $userType = DB::table('model_has_roles')
+                    ->select('role_id')
+                    ->where('model_id',$userid)->get();
+        if($userType[0]->role_id == '2'){
+            $users = User::where('id','<>', function($query){
+                $query->select('model_id')
+                ->from('model_has_roles')
+                ->where('role_id','2');
+            })->get();
+        }
+        else{
+            $users = User::where('id', function($query){
+                $query->select('model_id')
+                ->from('model_has_roles')
+                ->where('role_id','4');
+            })->get();
+        }
+
+        return view('users.index', compact('users','userType'));
     }
 
     /**
@@ -62,11 +77,23 @@ class userRegistrationController extends Controller
             'Catamarca' => 'Catamarca',
         ];
 
-        $role = [
-            '1' => 'Ministro de Salud',
-            '3' => 'Responsable de Region Sanitaria',
-            '4' => 'Operario'
-        ];
+        $userid = Auth::id();
+        $userType = DB::table('model_has_roles')
+                    ->select('role_id')
+                    ->where('model_id',$userid)->get();
+
+        if($userType[0]->role_id == '2'){
+            $role = [
+                '1' => 'Ministro de Salud',
+                '3' => 'Responsable de Region Sanitaria',
+                '4' => 'Operario'
+            ];
+        }
+        else{
+            $role = [
+                '4' => 'Operario'
+            ];
+        }
         return view('users.create',compact('province','role'));
     }
 

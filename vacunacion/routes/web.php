@@ -6,7 +6,7 @@ use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\SanitaryRegionController;
 use App\Http\Controllers\VaccinationController;
 use App\Http\Controllers\userRegistrationController;
-
+use App\Http\Controllers\Vaccine_lotController;
 
 
 /*
@@ -32,5 +32,6 @@ Route::resource('users',userRegistrationController::class)->middleware('can:user
 Route::resource('vaccines',VaccineController::class)->middleware('can:vaccines')->names('vaccines');
 Route::resource('sanitary_regions',SanitaryRegionController::class)->middleware('can:sanitary_regions')->names('sanitary_regions');
 Route::resource('vaccinations',VaccinationController::class)->middleware('can:vaccinations')->names('vaccinations');
+Route::resource('vaccine_lots',Vaccine_lotController::class)->middleware('can:vaccine_lots')->names('vaccine_lots');
 
 

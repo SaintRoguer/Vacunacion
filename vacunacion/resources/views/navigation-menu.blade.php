@@ -15,6 +15,18 @@
                 </x-jet-nav-link>
                 @endcan
 
+                @can('vaccine_lots')
+                <x-jet-nav-link href="{{ route('vaccine_lots.index') }}" :active="request()->routeIs('vaccine_lots.index')">
+                        Vaccine lots
+                </x-jet-nav-link>
+                @endcan
+                
+                @can('operative_users')
+                <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                        Users
+                </x-jet-nav-link>
+                @endcan
+
                 @can('vaccines')
                 <x-jet-nav-link href="{{ route('vaccines.index') }}" :active="request()->routeIs('vaccines.index')">
                         Vaccines

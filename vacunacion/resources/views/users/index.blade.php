@@ -12,15 +12,17 @@
         <div class="card-body">
                     <table class="table table-striped">
                         <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Province</th>
-                            <th>City</th>
-                            <th>DNI</th>
-                            <th colspan="1"></th>
-                        </tr>
+                            <tr>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Province</th>
+                                <th>City</th>
+                                <th>DNI</th>
+                                @if($userType[0]->role_id == '2')
+                                <th colspan="1"></th>
+                                @endif
+                            </tr>
                         </thead>
 
                         <tbody>
@@ -32,14 +34,16 @@
                                         <th>{{$user->province}}</th>
                                         <th>{{$user->city}}</th>
                                         <th>{{$user->dni}}</th>
-                                        <td width="10px">
-                                            <form action="{{route('users.destroy',$user)}}" method="POST">
-                                                @csrf
-                                                @method('delete')
+                                        @if($userType[0]->role_id == '2')
+                                            <td width="10px">
+                                                <form action="{{route('users.destroy',$user)}}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
 
-                                                <button type="submit" class="btn btn-danger btn-sm">Eliminate</button>
-                                            </form>
-                                        </td>
+                                                    <button type="submit" class="btn btn-danger btn-sm">Eliminate</button>
+                                                </form>
+                                            </td>
+                                        @endif
                                     </tr>
                             @endforeach
                         </tbody>
