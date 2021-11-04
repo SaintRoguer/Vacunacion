@@ -15,19 +15,27 @@ class VaccineSeeder extends Seeder
     public function run()
     {
         Vaccine::create([
-           'name' => 'Sputnik',
-           'laboratory' => 'SputnikV',
+           'name' => 'SputnikV',
+           'laboratory' => 'Gamaleya',
            'date_of_caducity' => '07/13/1993',
            'number_of_doses' => '2',
            'days_between_doses' => '15', 
         ]);
 
         Vaccine::create([
-            'name' => 'Cinopharm',
-            'laboratory' => 'Cinopharm',
+            'name' => 'Sinopharm',
+            'laboratory' => 'Sinopharm',
             'date_of_caducity' => '07/13/1993',
             'number_of_doses' => '2',
             'days_between_doses' => '15', 
+         ]);
+
+         Vaccine::create([
+            'name' => 'Moderna',
+            'laboratory' => 'Moderna',
+            'date_of_caducity' => '07/13/1993',
+            'number_of_doses' => '2',
+            'days_between_doses' => '30', 
          ]);
 
     }

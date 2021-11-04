@@ -44,6 +44,18 @@
                         Vaccination
                 </x-jet-nav-link>
                 @endcan
+
+                @can('report_solicitations')
+                <x-jet-nav-link href="{{ route('report_solicitations.index') }}" :active="request()->routeIs('report_solicitations.index')">
+                        Reports
+                </x-jet-nav-link>
+                @endcan
+
+                @can('manage_reports')
+                <x-jet-nav-link href="{{ route('manage_reports.index') }}" :active="request()->routeIs('manage_reports.index')">
+                        Manage Reports
+                </x-jet-nav-link>
+                @endcan
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

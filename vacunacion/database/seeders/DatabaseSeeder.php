@@ -18,5 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(VaccineSeeder::class);
         $this->call(SanitaryRegionSeeder::class);
+        $this->call(reportSolicitationSeeder::class);
+        $this->call(VaccinationSeeder::class);
+        $this->call(Vaccine_lotSeeder::class);
     }
 }
